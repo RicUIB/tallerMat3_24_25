@@ -4,7 +4,7 @@ author: "Taller"
 lang: es
 format:
   html:
-    theme: Superhero
+    theme: slate
     toc: true
     html-math-method: katex
     css: styles.css
@@ -23,7 +23,11 @@ library(tidyverse)
 
 # Lectura de todas las observaciones de listings de una zona
 
-El siguiente código lee todas las carpetas de la zona de Mallorca y lee los archivos `listings.csv` de cada una de ellas. y genera un listing que contenga todos los apartamentos (los `id`) que aparecen en los 4 scrappings que disponemos de Mallorca. Hemos parametrizado el código para que se pueda cambiar a otra zona se quiera analizar.
+El siguiente código lee todas las carpetas de la zona de Mallorca y lee los 
+archivos `listings.csv` de cada una de ellas. y genera un listing que contenga 
+todos los apartamentos (los `id`) que aparecen en los 4 scrappings que disponemos
+de Mallorca. Hemos parametrizado el código para que se pueda cambiar a otra zona 
+se quiera analizar.
 
 Se comenta el código para facilitar su lectura (generado...).
 
@@ -208,7 +212,7 @@ write_csv(listings_all, paste0(file,".csv.gz"))
 ```
 
 
-# Mallorca, Menorca, Valencia y Albany
+# Listins: Mallorca, Menorca, Valencia y Albany (USA)
 
 Los datos  de `listings` ya están  en la carpeta `"data/ZONA/FECHA"` 
 los resultados se guardan en `"clean_data/ZONA"` en los ficheros "listing_all.RData" o en 
@@ -355,15 +359,18 @@ ggplot() +
 
 
 ```{r}
+library(kableExtra)
 tabla_stat=listings_common0_select %>% group_by(neighbourhood_cleansed) %>% 
   summarise(N=n(),mean_price=mean(price,na.rm=TRUE),
             sd_price=sd(price,na.rm=TRUE),
             min_price=min(price,na.rm=TRUE),
-            max_price=max(price,na.rm=TRUE)) %>% arrange(-N,neighbourhood_cleansed)
+            max_price=max(price,na.rm=TRUE)) %>% arrange(neighbourhood_cleansed)
 knitr::kable(tabla_stat, caption = "Estadísticos de los precios por municipio",
              format = "markdown",digits = 4,align = "r",booktabs = TRUE, 
              col.names = c("Municipio","n","Media","Desv. típica",
-                           "Mínimo","Máximo"))
+                           "Mínimo","Máximo"))%>%
+  kable_material(bootstrap_options = "striped",
+                 full_width = F, position = "center")
 ```
 
 
@@ -432,3 +439,8 @@ interactive_map
 # Enlaces y Bibliografía
 
 
+* [R for data science, Hadley Wickham, Garret  Grolemund.](https://r4ds.had.co.nz/)
+* [Fundamentos de ciencia de datos con R.](https://cdr-book.github.io/) 
+* [Tablas avanzadas: kable, KableExtra.](https://haozhu233.github.io/kableExtra/awesome_table_in_html.html)
+* [Geocomputation with R, Robin Lovelace, Jakub Nowosad, Jannes Muenchow](https://r.geocompx.org/)
+* [Geospatial Health Data: Modeling and Visualization with R-INLA and Shiny, Andrea Lawson, Sonia Dahdouh](https://www.crcpress.com/Geospatial-Health-Data-Modeling-and-Visualization-with-R-INLA-and-Shiny/Lawson-Dahdouh/p/book/9780367331533)
