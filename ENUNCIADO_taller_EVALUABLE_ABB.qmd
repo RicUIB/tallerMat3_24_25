@@ -23,7 +23,7 @@ library(tidyverse)
 
 # Intrucciones para el taller
 
-Se entraga en grupos que deben de estar constituidos en la actividad de grupos. 
+Se entrega en grupos que deben de estar constituidos en la actividad de grupos. 
 Los grupos  son de 2 o 3 ESTUDIANTES, loa caso especiales consultadlos con el 
 profesor para que los autorice.
 
@@ -34,13 +34,13 @@ profesor para que los autorice.
 * [Fundamentos de ciencia de datos con R.](https://cdr-book.github.io/) 
 * [Tablas avanzadas: kable, KableExtra.](https://haozhu233.github.io/kableExtra/awesome_table_in_html.html)
 * [Geocomputation with R, Robin Lovelace, Jakub Nowosad, Jannes Muenchow](https://r.geocompx.org/)
-* Apuntes de R -basico y tidyverse moodel MAT3.
+* Apuntes de R-basico y tidyverse moodel MAT3.
 
 
 
 ## Objetivo MALLORCA
 
-Leeremos los siguientes  datos de la zona de mallorca con el código siguiente: 
+Leeremos los siguientes  datos de la zona de etiqueta `mallorca` con el código siguiente: 
 
 
 
@@ -128,7 +128,7 @@ la corrección de la respuesta.
 
 
 
-## Pregunta 1
+## Pregunta 1 (**1punto**)
 
 Del fichero  con los datos de listings da los estadísticos descriptivos de las variable `price` y de la variable 
 `number_of_reviews` agrupados por municipio y por año.
@@ -137,13 +137,13 @@ Presenta los resultados con una tabla de kableExtra.
 
 
 
-## Pregunta 2
+## Pregunta 2 (**1punto**)
 
  
  Consideremos las variables `price` y `number_of_reviews`  de Pollença y Palma del  perido "2024-09-13", del fichero `listings.csv.gz`. 
  Estudiad si estos datos se aproximan a una distribución normal gráficamente . Para ello, dibujad el histrograma la función kernel que aproxima la desidad y la densidad de la normal de media y varianza las de las muestras de las variables `price` y `number_of_reviews` agrupadas por municipio y por año. 
  
-### Pregunta 3
+## Pregunta 3 (**1punto**)
 
  Contrastar si las media del precio en  Pollença  es igual a la de Palma contra que  mayor que 
  en Palma para los precios >50 euros y menores de 400$. 
@@ -151,21 +151,59 @@ Presenta los resultados con una tabla de kableExtra.
   Justifica tecnicamente la  conclusión del contraste.
  
 
-## Pregunta 4
+## Pregunta 4 (**1punto**)
 
 Contrastar si las medias de los precios en Palma  entre los periodos "2023-12-17"  y "2024-03-23" 
 son iguales. Construid la hipótesis nula y  alternativa, calculad el p-valor y el intervalo de confianza asociado al contraste. Haced un boxplot
 
 
-## Pregunta 5
+## Pregunta 5 (**1punto**)
 
 Calcular la proporción de apartamentos de la muestra "2024-03-23"   con media de valoración r`eview_scores_rating` mayor que 4 en Palma y en  Pollença son igules contra que son distintas. Construid un intervalo de confianza para la diferencia de proporciones.
 
 
-## Pregunta 6
+## Pregunta 6 (**1punto**)
 
 Calcular la proporción de apartamentos de los periodos "2023-12-17"  y "2024-03-23" con media de valoración `review_scores_rating` mayor que 4 en Palma y en  Pollença son iguales contra que son distintas. Construid un intervalo de confianza para la diferencia de proporciones.
 
+
+## Pregunta 7 (**1punto**)
+
+La [Zipf's law es una ley empírica](https://en.wikipedia.org/wiki/Zipf%27s_law) que dice que la frecuencia de las palabras en un texto es inversamente proporcional a su rango. Decidid  si la ley se ajusta a los datos de la longitud de los comentarios de los apartamentos de la muestra "2023-12-17"  de Palma. Para ello, haced un análisis de regresión lineal de la frecuencia de las longitudes de los comentarios de los apartamentos de Palma y el rango de las longitudes de los comentarios. Justificad la respuesta.
+
+Como ayuda estudiar el siguiente código, ultilizarlo  y comentarlo.
+
+```{r}
+library(stringr)
+head(reviews)
+length_rewiews=stringr::str_length(reviews$comments)
+head(table(length_rewiews))
+```
+
+```{r}
+aux=table(length_rewiews)
+head(aux)
+head(names(aux))
+tbl=tibble( L=as.numeric(names(aux)),Freq=as.numeric(aux),
+            Rank=rank(L),Log_Freq=log(Freq),Log_Rank=log(Rank))
+str(tbl)
+```
+
+```{r}
+tbl2=tbl %>% filter(Rank>10) %>% filter(Rank<1000)
+sol1=lm(tbl2$Freq~tbl2$Rank)
+summary(sol1)
+
+
+sol2=lm(tbl2$Freq~tbl2$Log_Rank)
+summary(sol2)
+
+
+sol3=lm(tbl2$Log_Freq~tbl2$Log_Rank)
+summary(sol3)
+
+
+```
 
 
 
