@@ -57,12 +57,12 @@ str(listings_common0_select)
 Hemos cargado el objeto `listing_common0_select` que contiene los datos de las 4 
 muestras de apartamentos de inside Airbnb de Mallorca con unas 15 0 16 variables.
 
-Notemoq que cada apartamento:
+Notemos que cada apartamento:
 
 * queda identificado por id y por date que ns da la muestra en la que apareció el dato.
 * así que cada apartamento parece 4 veces ya que hemos elegido solo los apartamentos 
 que aparecen en las 4 muestras.
-* Las  muestras son `r unique(listings_common0_select)$date`,
+* Las  muestras son `r unique(listings_common0_select$date)`,
 
 
 ```{r}
@@ -82,7 +82,7 @@ head(reviews)
 
 **neighbourhoods.csv**
 
- Son deos columnas y la primera es una agrupación de municipios (están NA) y la 
+ Son dos columnas y la primera es una agrupación de municipios (están NA) y la 
  segunda es el nombre del municipio
 
 ```{r}
@@ -121,7 +121,7 @@ que significad cada variable. Os puede ser útil leer los ficheros
 
 
 
-Responder las siguientes preguntas  como formato Rmarkdown o quarto y entregad 
+Responder las siguientes preguntas  como formato Rmarkdown (.Rmd) o quarto (.qmd) y entregad 
 la fuente un  fichero en formato html como  salida del informe. 
 Se puntúa la claridad de la respuesta, la calidad de la redacción y 
 la corrección de la respuesta.
