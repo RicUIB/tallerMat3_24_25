@@ -165,6 +165,7 @@ listings_common0 <- listings_all %>% filter(id %in% id_common)
 
 listings_common0_select <- listings_common0 %>%
   select(
+    date,
     id,
     price,
     longitude,
@@ -443,4 +444,4 @@ interactive_map
 * [Fundamentos de ciencia de datos con R.](https://cdr-book.github.io/) 
 * [Tablas avanzadas: kable, KableExtra.](https://haozhu233.github.io/kableExtra/awesome_table_in_html.html)
 * [Geocomputation with R, Robin Lovelace, Jakub Nowosad, Jannes Muenchow](https://r.geocompx.org/)
-* [Geospatial Health Data: Modeling and Visualization with R-INLA and Shiny, Andrea Lawson, Sonia Dahdouh](https://www.crcpress.com/Geospatial-Health-Data-Modeling-and-Visualization-with-R-INLA-and-Shiny/Lawson-Dahdouh/p/book/9780367331533)
+* Apuntes de R -basico y tidyverse moodel MAT3.b
