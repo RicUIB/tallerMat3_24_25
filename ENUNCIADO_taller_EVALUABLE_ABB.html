@@ -396,13 +396,13 @@ Geodetic CRS:  WGS 84</code></pre>
 </div>
 <details class="code-fold">
 <summary>Código</summary>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>length_rewiews<span class="ot">=</span>stringr<span class="sc">::</span><span class="fu">str_count</span>(reviews<span class="sc">$</span>comments,<span class="st">"</span><span class="sc">\\</span><span class="st">W+"</span>)</span>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>length_rewiews<span class="ot">=</span>stringr<span class="sc">::</span><span class="fu">str_count</span>(reviews<span class="sc">$</span>comments,<span class="st">"</span><span class="sc">\\</span><span class="st">w+"</span>)</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">table</span>(length_rewiews))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>length_rewiews
    0    1    2    3    4    5 
-1732 5006 4236 3631 4404 5012 </code></pre>
+1138 2569 5601 3348 4331 4924 </code></pre>
 </div>
 </div>
 <div class="cell">
@@ -414,7 +414,7 @@ Geodetic CRS:  WGS 84</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>length_rewiews
    0    1    2    3    4    5 
-1732 5006 4236 3631 4404 5012 </code></pre>
+1138 2569 5601 3348 4331 4924 </code></pre>
 </div>
 <details class="code-fold">
 <summary>Código</summary>
@@ -430,12 +430,12 @@ Geodetic CRS:  WGS 84</code></pre>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(tbl)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>tibble [628 × 5] (S3: tbl_df/tbl/data.frame)
- $ L       : num [1:628] 0 1 2 3 4 5 6 7 8 9 ...
- $ Freq    : num [1:628] 1732 5006 4236 3631 4404 ...
- $ Rank    : num [1:628] 1 2 3 4 5 6 7 8 9 10 ...
- $ Log_Freq: num [1:628] 7.46 8.52 8.35 8.2 8.39 ...
- $ Log_Rank: num [1:628] 0 0.693 1.099 1.386 1.609 ...</code></pre>
+<pre><code>tibble [626 × 5] (S3: tbl_df/tbl/data.frame)
+ $ L       : num [1:626] 0 1 2 3 4 5 6 7 8 9 ...
+ $ Freq    : num [1:626] 1138 2569 5601 3348 4331 ...
+ $ Rank    : num [1:626] 1 2 3 4 5 6 7 8 9 10 ...
+ $ Log_Freq: num [1:626] 7.04 7.85 8.63 8.12 8.37 ...
+ $ Log_Rank: num [1:626] 0 0.693 1.099 1.386 1.609 ...</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -452,18 +452,18 @@ lm(formula = tbl2$Freq ~ tbl2$Rank)
 
 Residuals:
    Min     1Q Median     3Q    Max 
--872.7 -654.1 -174.5  366.0 3502.2 
+-873.9 -663.3 -175.3  368.6 3533.5 
 
 Coefficients:
-             Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept) 1754.4736    71.1850   24.65   &lt;2e-16 ***
-tbl2$Rank     -3.9691     0.1945  -20.40   &lt;2e-16 ***
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) 1768.652     71.864   24.61   &lt;2e-16 ***
+tbl2$Rank     -4.014      0.197  -20.37   &lt;2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 862.7 on 616 degrees of freedom
-Multiple R-squared:  0.4033,    Adjusted R-squared:  0.4023 
-F-statistic: 416.3 on 1 and 616 DF,  p-value: &lt; 2.2e-16</code></pre>
+Residual standard error: 869.5 on 614 degrees of freedom
+Multiple R-squared:  0.4033,    Adjusted R-squared:  0.4024 
+F-statistic: 415.1 on 1 and 614 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 <details class="code-fold">
 <summary>Código</summary>
@@ -477,18 +477,18 @@ lm(formula = tbl2$Freq ~ tbl2$Log_Rank)
 
 Residuals:
     Min      1Q  Median      3Q     Max 
--800.06 -468.99    4.61  380.00 1516.69 
+-809.74 -473.62    4.57  383.09 1562.70 
 
 Coefficients:
               Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)    6915.71     140.22   49.32   &lt;2e-16 ***
-tbl2$Log_Rank -1166.25      25.14  -46.38   &lt;2e-16 ***
+(Intercept)    6969.44     141.50   49.26   &lt;2e-16 ***
+tbl2$Log_Rank -1175.92      25.39  -46.32   &lt;2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 526.9 on 616 degrees of freedom
-Multiple R-squared:  0.7774,    Adjusted R-squared:  0.7771 
-F-statistic:  2151 on 1 and 616 DF,  p-value: &lt; 2.2e-16</code></pre>
+Residual standard error: 530.9 on 614 degrees of freedom
+Multiple R-squared:  0.7775,    Adjusted R-squared:  0.7772 
+F-statistic:  2146 on 1 and 614 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 <details class="code-fold">
 <summary>Código</summary>
@@ -502,18 +502,18 @@ lm(formula = tbl2$Log_Freq ~ tbl2$Log_Rank)
 
 Residuals:
     Min      1Q  Median      3Q     Max 
--4.1198 -0.4912  0.1002  0.5361  1.2327 
+-4.1149 -0.4810  0.0715  0.5346  1.2697 
 
 Coefficients:
               Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)   19.84772    0.20822   95.32   &lt;2e-16 ***
-tbl2$Log_Rank -3.00323    0.03734  -80.44   &lt;2e-16 ***
+(Intercept)   19.85286    0.20769   95.59   &lt;2e-16 ***
+tbl2$Log_Rank -3.00352    0.03726  -80.61   &lt;2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 0.7824 on 616 degrees of freedom
-Multiple R-squared:  0.9131,    Adjusted R-squared:  0.9129 
-F-statistic:  6470 on 1 and 616 DF,  p-value: &lt; 2.2e-16</code></pre>
+Residual standard error: 0.7793 on 614 degrees of freedom
+Multiple R-squared:  0.9137,    Adjusted R-squared:  0.9135 
+F-statistic:  6497 on 1 and 614 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
 <!-- -->
@@ -1131,7 +1131,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb34-147"><a href="#cb34-147" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
 <span id="cb34-148"><a href="#cb34-148" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
 <span id="cb34-149"><a href="#cb34-149" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(reviews)</span>
-<span id="cb34-150"><a href="#cb34-150" aria-hidden="true" tabindex="-1"></a>length_rewiews<span class="ot">=</span>stringr<span class="sc">::</span><span class="fu">str_count</span>(reviews<span class="sc">$</span>comments,<span class="st">"</span><span class="sc">\\</span><span class="st">W+"</span>)</span>
+<span id="cb34-150"><a href="#cb34-150" aria-hidden="true" tabindex="-1"></a>length_rewiews<span class="ot">=</span>stringr<span class="sc">::</span><span class="fu">str_count</span>(reviews<span class="sc">$</span>comments,<span class="st">"</span><span class="sc">\\</span><span class="st">w+"</span>)</span>
 <span id="cb34-151"><a href="#cb34-151" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">table</span>(length_rewiews))</span>
 <span id="cb34-152"><a href="#cb34-152" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb34-153"><a href="#cb34-153" aria-hidden="true" tabindex="-1"></a></span>

@@ -135,7 +135,7 @@ Como ayuda estudiar el siguiente código, utilizadlo y comentadlo.
 ```{r}
 library(stringr)
 head(reviews)
-length_rewiews=stringr::str_count(reviews$comments,"\\W+")
+length_rewiews=stringr::str_count(reviews$comments,"\\w+")
 head(table(length_rewiews))
 ```
 
