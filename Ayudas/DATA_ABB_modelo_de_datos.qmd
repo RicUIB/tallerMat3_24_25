@@ -10,7 +10,7 @@ format:
     css: styles.css
     code-tools: true
     code-fold: true
-    collapse: true 
+    collapse: true
 ---      
 
 ```{r setup, include=FALSE}
@@ -43,9 +43,9 @@ library(tidyverse)
 
 # Función para leer archivos de listado
 read_data_listing <- function(zone) {
-dir_name_zone <- paste0("data/",zone)
+dir_name_zone <- paste0("../data/",zone)
 dir_zone_date <- dir(dir_name_zone)
-file_path <- paste0("data/", zone, "/", dir_zone_date, "/listings.csv.gz")
+file_path <- paste0("../data/", zone, "/", dir_zone_date, "/listings.csv.gz")
 rd_listings <- function(file){ 
   readr::read_csv(file,
     col_types = cols(                         
@@ -186,24 +186,24 @@ listings_common0_select <- listings_common0 %>%
 #glimpse(listings_common1)
 
 # Guardar los datos en un archivo csv.gz y en un Rdata
-if(!file.exists("clean_data/")) {dir.create("clean_data")}
-if(!file.exists(paste0("clean_data/",zone))) {dir.create(paste0("clean_data/",zone))}
+if(!file.exists("../clean_data/")) {dir.create("clean_data")}
+if(!file.exists(paste0("../clean_data/",zone))) {dir.create(paste0("../clean_data/",zone))}
 
 
 
-file=paste0("clean_data/",zone,"/listing_common0")
+file=paste0("../clean_data/",zone,"/listing_common0")
 if(!file.exists(paste0(file,".csv.gz"))) {
 write_csv(listings_common0, paste0(file,".csv.gz"))
 save(listings_common0, file = paste0(file,".RData"))
 }
 
-file=paste0("clean_data/",zone,"/listing_common0_select")
+file=paste0("../clean_data/",zone,"/listing_common0_select")
 if(!file.exists(paste0(file,".csv.gz"))) {
 write_csv(listings_common0_select, paste0(file,".csv.gz"))
 save(listings_common0_select,file = paste0(file,".RData"))
 }
 
-file=paste0("clean_data/",zone,"/listings_all")
+file=paste0("../clean_data/",zone,"/listings_all")
 if(!file.exists(paste0(file,".csv.gz"))) {
 write_csv(listings_all, paste0(file,".csv.gz"))
   save(listings_all, file = paste0(file,".RData"))
@@ -215,8 +215,8 @@ write_csv(listings_all, paste0(file,".csv.gz"))
 
 # Listins: Mallorca, Menorca, Valencia y Albany (USA)
 
-Los datos  de `listings` ya están  en la carpeta `"data/ZONA/FECHA"` 
-los resultados se guardan en `"clean_data/ZONA"` en los ficheros "listing_all.RData" o en 
+Los datos  de `listings` ya están  en la carpeta `"../data/ZONA/FECHA"` 
+los resultados se guardan en `"../clean_data/ZONA"` en los ficheros "listing_all.RData" o en 
 "listing_all.csv.gz", así como  los ficheros del mismo nombre con el adjetivo  common0 o 
 common0_select contienen los apartamento que 
 aparecen en todos los periodos de observación.
@@ -232,9 +232,9 @@ read_data_listing(zone="albany")
 Podeís volver a leer estos ficheros .Rdata con 
 
 ```{r}
-load("clean_data/mallorca/listings_all.RData")
-load("clean_data/mallorca/listing_common0.RData")
-load("clean_data/mallorca/listing_common0_select.RData")
+load("../clean_data/mallorca/listings_all.RData")
+load("../clean_data/mallorca/listing_common0.RData")
+load("../clean_data/mallorca/listing_common0_select.RData")
 ```
 
 Que cargan los objetos `listings_all`, `listings_common0` y `listings_common0_select`
@@ -255,7 +255,7 @@ Por ejemplo  `data/mallorca/2023-12-17/calendar.csv.gz`
 
 
 ```{r}
-calendar=read_csv("data/mallorca/2023-12-17/calendar.csv.gz")
+calendar=read_csv("../data/mallorca/2023-12-17/calendar.csv.gz")
 str(calendar)
 head(calendar)
 ```
@@ -265,7 +265,7 @@ o  el archivo `data/mallorca/2023-12-17/reviews.csv.gz`  con
 
 
 ```{r}
-reviews=read_csv("data/mallorca/2023-12-17/reviews.csv.gz")
+reviews=read_csv("../data/mallorca/2023-12-17/reviews.csv.gz")
 str(reviews)
 head(reviews)
 ```
@@ -281,7 +281,7 @@ neighbourhoods.csv son los nombres de los municipios y sus agrupaciones
 Leamos primero el segundo fichero
 
 ```{r}
-municipios=read_csv("data/mallorca/2023-12-17/neighbourhoods.csv")
+municipios=read_csv("../data/mallorca/2023-12-17/neighbourhoods.csv")
 str(municipios)
 head(municipios)
 ```
@@ -300,7 +300,7 @@ library(sf)
 library(tmap)
 
 # Leer el archivo GeoJSON
-geojson_sf <- sf::st_read("data/mallorca/2024-09-13/neighbourhoods.geojson")
+geojson_sf <- sf::st_read("../data/mallorca/2024-09-13/neighbourhoods.geojson")
 
 # Crear un mapa
 
@@ -335,7 +335,7 @@ convertirlo en un objeto `sf`
 library(geojsonio)
 
 # Leer el archivo GeoJSON
-geojson_data <- geojson_read("data/mallorca/2024-09-13/neighbourhoods.geojson", what = "sp")
+geojson_data <- geojson_read("../data/mallorca/2024-09-13/neighbourhoods.geojson", what = "sp")
 
 # Inspeccionar el contenido
 print(head(geojson_data))

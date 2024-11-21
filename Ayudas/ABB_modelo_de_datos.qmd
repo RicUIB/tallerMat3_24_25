@@ -25,13 +25,13 @@ se dispones de más información sobre los variables en [get-the-data](https://i
 varios ficheros. Por ejemplo para Menorca tenemos las muestras en 4 periodos de tiempo:
 
 ```{r}
-dir("data/menorca")
+dir("../data/menorca")
 ```
 
 En cada carpeta, por ejemplo la primera, tenemos los mismos ficheros.
 
 ```{r}
-dir("data/menorca/2023-09-25/")
+dir("../data/menorca/2023-09-25/")
 ```
 
 ## Carga de datos del fichero listings.csv.gz
@@ -42,7 +42,7 @@ Cargado o leyendo el archivo varias veces los tipos de datos adecuados\
 con los que leeremos con el siguiente código:
 
 ```{r}
-listings <- read_csv("data/menorca/2023-09-25/listings.csv.gz")
+listings <- read_csv("../data/menorca/2023-09-25/listings.csv.gz")
 glimpse(listings)
 ```
 
@@ -50,7 +50,7 @@ Releemos dando formato adecuado, por ejemplo las fechas las leemos como `Date` y
 hay que convertirlos a `numeric` como sucede con `price`, `host_response_rate` o `host_acceptance_rate`. También hay otras variables lógicas. El lector verá en el código cómo hemos parseado las variables. Volvemos a leer el archivo de forma más adecuada (aunque no perfecta):
 
 ```{r}
-listings<- read_csv("data/menorca/2023-09-25/listings.csv.gz", 
+listings<- read_csv("../data/menorca/2023-09-25/listings.csv.gz", 
                     col_types = cols(                          
                       id =col_character(),
                       listing_url =col_character(),
@@ -171,13 +171,13 @@ Se comenta el código para facilitar su lectura (generado...).
 library(tidyverse)
 
 # Definir directorios y seleccionar uno para procesar
-dir_mallorca <- dir("data/mallorca")
+dir_mallorca <- dir("../data/mallorca")
 dir_zone <- dir_mallorca  # Aquí se puede cambiar la zona según sea necesario
 
 # Función para leer archivos de listado
 read_data_listing <- function(dir) {
   readr::read_csv(
-    paste0("data/mallorca/", dir, "/listings.csv.gz"),
+    paste0("../data/mallorca/", dir, "/listings.csv.gz"),
     col_types = cols(                         
 id =col_character(),
 listing_url =col_character(),

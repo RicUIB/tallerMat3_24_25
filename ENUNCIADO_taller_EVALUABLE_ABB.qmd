@@ -9,7 +9,8 @@ format:
     html-math-method: katex
     code-tools: true
     code-fold: true
-    collapse: true 
+    collapse: true
+    keep-md: true
 ---
 
 ```{r setup, include=FALSE}
