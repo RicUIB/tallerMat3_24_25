@@ -1,10 +1,10 @@
 ---
-title: "ENNCIADO 2024-2025"
+title: "ENUNCIADO  taller Mat3 GIN 2024-2025"
 author: "Taller"
 lang: es
 format:
   html:
-    theme: slate
+    theme: journal
     toc: true
     html-math-method: katex
     css: styles.css
