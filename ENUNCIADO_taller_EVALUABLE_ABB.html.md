@@ -285,7 +285,7 @@ Responder las siguientes preguntas con formato Rmarkdown (.Rmd) o quarto (.qmd) 
 
 ## Pregunta 1 (**1punto**)
 
-Del fichero con los datos de listings da los estadísticos descriptivos de las variable `price` y de la variable `number_of_reviews` agrupados por municipio y por periodo.
+Del fichero con los datos de listings `listing_common0_select.RData` calcula los estadísticos descriptivos de las variable `price` y de la variable `number_of_reviews` agrupados por municipio y por periodo.
 
 Presenta los resultados con una tabla de kableExtra.
 
