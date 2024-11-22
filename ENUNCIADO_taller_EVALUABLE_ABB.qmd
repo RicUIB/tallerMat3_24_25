@@ -125,11 +125,11 @@ Calcular la proporción de apartamentos de la muestra "2024-03-23" con media de 
 
 ## Pregunta 6 (**1punto**)
 
-Calcular la proporción de apartamentos de los periodos "2023-12-17" y "2024-03-23" con media de valoración `review_scores_rating` mayor que 4 en Palma y en Pollença son iguales contra que son distintas. Construid un intervalo de confianza para la diferencia de proporciones.
+Calcular la proporción de apartamentos de los periodos "2023-12-17" y "2024-03-23" con media de valoración `review_scores_rating` mayor que 4 en Palma y en Pollença son iguales contra que son distintas.
 
 ## Pregunta 7 (**1punto**)
 
-La [Zipf's law es una ley empírica](https://en.wikipedia.org/wiki/Zipf%27s_law#Word_frequencies_in_natural_languages) que dice que la frecuencia de las palabras en un texto es inversamente proporcional a su rango. Decidid si la ley se ajusta a los datos de la longitud de los comentarios de los apartamentos de la muestra "2023-12-17" de Palma. Para ello, haced un análisis de regresión lineal de la frecuencia de las longitudes de los comentarios de los apartamentos de Palma y el rango de las longitudes de los comentarios. Justificad la respuesta.
+La [Zipf's law es una ley empírica](https://en.wikipedia.org/wiki/Zipf%27s_law#Word_frequencies_in_natural_languages) que dice que la frecuencia de las palabras en un texto es inversamente proporcional a su rango. Decidid si la ley se ajusta a los datos de la longitud de los comentarios de los apartamentos de la muestra "2023-12-17" de Palma. Para ello, haced un análisis de regresión lineal de la frecuencia de las longitudes de los comentarios de los apartamentos de Palma y el rango de las longitudes de los comentarios. Justificad la respuesta, estadísticamente y gráficamente.
 
 Como ayuda estudiar el siguiente código, utilizadlo y comentadlo.
 
@@ -154,13 +154,9 @@ tbl2=tbl %>% filter(Rank>10) %>% filter(Rank<1000)
 sol1=lm(tbl2$Freq~tbl2$Rank)
 summary(sol1)
 
-
 sol2=lm(tbl2$Freq~tbl2$Log_Rank)
 summary(sol2)
 
-
 sol3=lm(tbl2$Log_Freq~tbl2$Log_Rank)
 summary(sol3)
-
-
 ```

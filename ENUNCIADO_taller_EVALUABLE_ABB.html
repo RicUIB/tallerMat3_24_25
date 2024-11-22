@@ -372,11 +372,11 @@ Pollença</p>
 </section>
 <section id="pregunta-6-1punto" class="level2">
 <h2 class="anchored" data-anchor-id="pregunta-6-1punto">Pregunta 6 (<strong>1punto</strong>)</h2>
-<p>Calcular la proporción de apartamentos de los periodos “2023-12-17” y “2024-03-23” con media de valoración <code>review_scores_rating</code> mayor que 4 en Palma y en Pollença son iguales contra que son distintas. Construid un intervalo de confianza para la diferencia de proporciones.</p>
+<p>Calcular la proporción de apartamentos de los periodos “2023-12-17” y “2024-03-23” con media de valoración <code>review_scores_rating</code> mayor que 4 en Palma y en Pollença son iguales contra que son distintas.</p>
 </section>
 <section id="pregunta-7-1punto" class="level2">
 <h2 class="anchored" data-anchor-id="pregunta-7-1punto">Pregunta 7 (<strong>1punto</strong>)</h2>
-<p>La <a href="https://en.wikipedia.org/wiki/Zipf%27s_law#Word_frequencies_in_natural_languages">Zipf’s law es una ley empírica</a> que dice que la frecuencia de las palabras en un texto es inversamente proporcional a su rango. Decidid si la ley se ajusta a los datos de la longitud de los comentarios de los apartamentos de la muestra “2023-12-17” de Palma. Para ello, haced un análisis de regresión lineal de la frecuencia de las longitudes de los comentarios de los apartamentos de Palma y el rango de las longitudes de los comentarios. Justificad la respuesta.</p>
+<p>La <a href="https://en.wikipedia.org/wiki/Zipf%27s_law#Word_frequencies_in_natural_languages">Zipf’s law es una ley empírica</a> que dice que la frecuencia de las palabras en un texto es inversamente proporcional a su rango. Decidid si la ley se ajusta a los datos de la longitud de los comentarios de los apartamentos de la muestra “2023-12-17” de Palma. Para ello, haced un análisis de regresión lineal de la frecuencia de las longitudes de los comentarios de los apartamentos de Palma y el rango de las longitudes de los comentarios. Justificad la respuesta, estadísticamente y gráficamente.</p>
 <p>Como ayuda estudiar el siguiente código, utilizadlo y comentadlo.</p>
 <div class="cell">
 <details class="code-fold">
@@ -1122,11 +1122,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb34-135"><a href="#cb34-135" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb34-136"><a href="#cb34-136" aria-hidden="true" tabindex="-1"></a><span class="fu">## Pregunta 6 (**1punto**)</span></span>
 <span id="cb34-137"><a href="#cb34-137" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-138"><a href="#cb34-138" aria-hidden="true" tabindex="-1"></a>Calcular la proporción de apartamentos de los periodos "2023-12-17" y "2024-03-23" con media de valoración <span class="in">`review_scores_rating`</span> mayor que 4 en Palma y en Pollença son iguales contra que son distintas. Construid un intervalo de confianza para la diferencia de proporciones.</span>
+<span id="cb34-138"><a href="#cb34-138" aria-hidden="true" tabindex="-1"></a>Calcular la proporción de apartamentos de los periodos "2023-12-17" y "2024-03-23" con media de valoración <span class="in">`review_scores_rating`</span> mayor que 4 en Palma y en Pollença son iguales contra que son distintas.</span>
 <span id="cb34-139"><a href="#cb34-139" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb34-140"><a href="#cb34-140" aria-hidden="true" tabindex="-1"></a><span class="fu">## Pregunta 7 (**1punto**)</span></span>
 <span id="cb34-141"><a href="#cb34-141" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-142"><a href="#cb34-142" aria-hidden="true" tabindex="-1"></a>La <span class="co">[</span><span class="ot">Zipf's law es una ley empírica</span><span class="co">](https://en.wikipedia.org/wiki/Zipf%27s_law#Word_frequencies_in_natural_languages)</span> que dice que la frecuencia de las palabras en un texto es inversamente proporcional a su rango. Decidid si la ley se ajusta a los datos de la longitud de los comentarios de los apartamentos de la muestra "2023-12-17" de Palma. Para ello, haced un análisis de regresión lineal de la frecuencia de las longitudes de los comentarios de los apartamentos de Palma y el rango de las longitudes de los comentarios. Justificad la respuesta.</span>
+<span id="cb34-142"><a href="#cb34-142" aria-hidden="true" tabindex="-1"></a>La <span class="co">[</span><span class="ot">Zipf's law es una ley empírica</span><span class="co">](https://en.wikipedia.org/wiki/Zipf%27s_law#Word_frequencies_in_natural_languages)</span> que dice que la frecuencia de las palabras en un texto es inversamente proporcional a su rango. Decidid si la ley se ajusta a los datos de la longitud de los comentarios de los apartamentos de la muestra "2023-12-17" de Palma. Para ello, haced un análisis de regresión lineal de la frecuencia de las longitudes de los comentarios de los apartamentos de Palma y el rango de las longitudes de los comentarios. Justificad la respuesta, estadísticamente y gráficamente.</span>
 <span id="cb34-143"><a href="#cb34-143" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb34-144"><a href="#cb34-144" aria-hidden="true" tabindex="-1"></a>Como ayuda estudiar el siguiente código, utilizadlo y comentadlo.</span>
 <span id="cb34-145"><a href="#cb34-145" aria-hidden="true" tabindex="-1"></a></span>
@@ -1151,16 +1151,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb34-170"><a href="#cb34-170" aria-hidden="true" tabindex="-1"></a>sol1<span class="ot">=</span><span class="fu">lm</span>(tbl2<span class="sc">$</span>Freq<span class="sc">~</span>tbl2<span class="sc">$</span>Rank)</span>
 <span id="cb34-171"><a href="#cb34-171" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(sol1)</span>
 <span id="cb34-172"><a href="#cb34-172" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-173"><a href="#cb34-173" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-174"><a href="#cb34-174" aria-hidden="true" tabindex="-1"></a>sol2<span class="ot">=</span><span class="fu">lm</span>(tbl2<span class="sc">$</span>Freq<span class="sc">~</span>tbl2<span class="sc">$</span>Log_Rank)</span>
-<span id="cb34-175"><a href="#cb34-175" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(sol2)</span>
-<span id="cb34-176"><a href="#cb34-176" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-177"><a href="#cb34-177" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-178"><a href="#cb34-178" aria-hidden="true" tabindex="-1"></a>sol3<span class="ot">=</span><span class="fu">lm</span>(tbl2<span class="sc">$</span>Log_Freq<span class="sc">~</span>tbl2<span class="sc">$</span>Log_Rank)</span>
-<span id="cb34-179"><a href="#cb34-179" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(sol3)</span>
-<span id="cb34-180"><a href="#cb34-180" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-181"><a href="#cb34-181" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-182"><a href="#cb34-182" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb34-173"><a href="#cb34-173" aria-hidden="true" tabindex="-1"></a>sol2<span class="ot">=</span><span class="fu">lm</span>(tbl2<span class="sc">$</span>Freq<span class="sc">~</span>tbl2<span class="sc">$</span>Log_Rank)</span>
+<span id="cb34-174"><a href="#cb34-174" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(sol2)</span>
+<span id="cb34-175"><a href="#cb34-175" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-176"><a href="#cb34-176" aria-hidden="true" tabindex="-1"></a>sol3<span class="ot">=</span><span class="fu">lm</span>(tbl2<span class="sc">$</span>Log_Freq<span class="sc">~</span>tbl2<span class="sc">$</span>Log_Rank)</span>
+<span id="cb34-177"><a href="#cb34-177" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(sol3)</span>
+<span id="cb34-178"><a href="#cb34-178" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 </code><button title="Copiar al portapapeles" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
