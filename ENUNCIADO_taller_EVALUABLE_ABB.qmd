@@ -121,7 +121,7 @@ Con los datos de `listings_common0_select` de todos los periodos, contrastar si 
 
 ## Pregunta 4 (**1punto**)
 
-Con los  datos de `listings_common0_select`, contrastar si las medias de los precios en Palma entre los periodos "2023-12-17" y "2024-03-23" son iguales contra que son menores en 2023. Construid la hipótesis nula y alternativa, calculad el $p$-valor y el intervalo de confianza asociado al contraste. Haced un diagrama de caja comparativo de los precios por municipio y coméntalo.
+Con los  datos de `listings_common0_select`, contrastar si las medias de los precios en Palma entre los periodos "2023-12-17" y "2024-03-23" son iguales contra que son menores en 2023. Construid la hipótesis nula y alternativa, calculad el $p$-valor y el intervalo de confianza asociado al contraste. Haced un diagrama de caja comparativo de los precios ~~por municipio~~  por periodo y coméntalo.
 
 ## Pregunta 5 (**1punto**)
 
