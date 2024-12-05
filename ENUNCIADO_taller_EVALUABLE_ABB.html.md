@@ -311,7 +311,7 @@ Calcular la proporción de apartamentos de la muestra "2024-03-23" con media de 
 
 ## Pregunta 6 (**1punto**)
 
-Calcular la proporción de apartamentos de los periodos "2023-12-17" y "2024-03-23" con media de valoración `review_scores_rating` mayor que 4 en Palma y en Pollença son iguales contra que son distintas.
+Calcular la proporción de apartamentos de los periodos "2023-12-17" y "2024-03-23" con media de valoración `review_scores_rating` mayor que 4 en Palma  ~~y en Pollença~~ son iguales contra que son distintas.
 
 ## Pregunta 7 (**1punto**)
 
