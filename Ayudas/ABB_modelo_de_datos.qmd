@@ -266,6 +266,29 @@ listing_list <- lapply(dir_zone, read_data_listing)
 # Verificar estructura y consistencia de datos
 sapply(listing_list, dim)          # Verificar que todos tengan 75 columnas
 names_list <- lapply(listing_list, names)
+
+# Paso 1: Obtener el conjunto completo de nombres de columnas entre todos los data frames
+all_column_names <- unique(unlist(lapply(listing_list, names)))
+
+# Paso 2: Función para agregar columnas faltantes con NA
+add_missing_columns <- function(df, all_names) {
+  missing_cols <- setdiff(all_names, names(df))
+  for (col in missing_cols) {
+    df[[col]] <- NA
+  }
+  # Reordenar columnas para mantener el mismo orden
+  df[all_names]
+}
+
+# Paso 3: Aplicar la función a todos los elementos de la lista
+listing_list <- lapply(listing_list, add_missing_columns, all_names = all_column_names)
+
+# Verificación
+sapply(listing_list, dim)  # Ahora deberían tener todas el mismo número de columnas
+
+```
+```{r}
+names_list <- lapply(listing_list, names)
 all_same_names <- length(unique(names_list)) == 1  # Chequear nombres de columnas
 
 # Analizar IDs de listados para observar consistencia entre periodos
@@ -277,11 +300,20 @@ unique_id_count <- length(unique(id_global))       # Conteo de IDs únicos
 id_common <- Reduce(intersect, id_list)
 
 # Consolidar todos los listados en un solo data frame
-listings_mallorca <- do.call(rbind, listing_list)
+listings_total <- do.call(rbind, listing_list)
 
 # Crear un data frame con los listados comunes en todos los periodos
-listings_common0 <- listings_mallorca %>% filter(id %in% id_common)
+listings_common0 <- listings_total%>% filter(id %in% id_common)
 ```
+
+
+```{r}
+write_csv(listings_total, paste0("../clean_data/mallorca/","listings_all.csv.gz"))
+write_csv(listings_common0, paste0("../clean_data/mallorca/","listing_common0.csv.gz"))
+save(listings_total, file=paste0("../clean_data/mallorca/","listings_all.RData"))
+save(listings_common0, file=paste0("../clean_data/mallorca/","listing_common0.RData"))
+```
+
 
 Por último de los comunes seleccionamos unas cuantas variables para hacer un análisis exploratorio, PERO CUIDADO, notemos que hemos perdido información de las fechas de los reviews, por lo que deberíamos de tener cuidado con el análisis que hagamos con estas variables y de algunas variables como `price`.
 

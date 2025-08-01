@@ -15,7 +15,9 @@ files_visualisations <- c("neighbourhoods.geojson","neighbourhoods.csv")
 #https://data.insideairbnb.com/united-states/ny/albany/2024-01-06/visualisations/neighbourhoods.geojson
 url1 <- "https://data.insideairbnb.com/united-states/ny/albany/"
 url2 <- "https://data.insideairbnb.com/united-states/ny/albany/"
-date_file=c("2024-09-05","2024-08-07","2024-07-06","2024-06-07","2024-05-06",
+date_file=c("2025-06-09","2025-05-02","2025-04-03","2025-03-02",
+            "2025-02-06","2025-01-05","2024-12-07","2024-11-05","2024-10-04",
+            "2024-09-05","2024-08-07","2024-07-06","2024-06-07","2024-05-06",
             "2024-04-08","2024-03-10","2024-02-14","2024-01-06","2023-12-06",
             "2023-11-27","2023-10-01")
 area="albany"
@@ -57,7 +59,8 @@ files_data <- c("listings.csv.gz",
 files_visualisations <- c("neighbourhoods.geojson","neighbourhoods.csv")
 url1 <- "https://data.insideairbnb.com/spain/vc/valencia/"
 url2 <- "https://data.insideairbnb.com/spain/vc/valencia/"
-date_file=c("2024-06-22","2024-03-24","2023-12-18")
+date_file=c("2025-06-20","2025-03-15","2024-12-21", "2024-09-18",
+            "2024-06-22","2024-03-24","2023-12-18")
 area="valencia"
 
 create_dir <- function(dir) {
@@ -97,7 +100,8 @@ files_data <- c("listings.csv.gz",
 files_visualisations <- c("neighbourhoods.geojson","neighbourhoods.csv")
 url1 <- "https://data.insideairbnb.com/spain/islas-baleares/mallorca/"
 url2 <- "https://data.insideairbnb.com/spain/islas-baleares/mallorca/"
-date_file=c("2024-09-13","2024-06-19","2024-03-23","2023-12-17")
+date_file=c("2025-06-15","2025-03-07","2024-12-14",
+            "2024-09-13","2024-06-19","2024-03-23","2023-12-17")
 area="mallorca"
 
 create_dir <- function(dir) {
@@ -135,7 +139,8 @@ files_data <- c("listings.csv.gz",
 files_visualisations <- c("neighbourhoods.geojson","neighbourhoods.csv")
 url1 <- "https://data.insideairbnb.com/spain/islas-baleares/menorca/"
 url2 <- "https://data.insideairbnb.com/spain/islas-baleares/menorca/"
-date_file=c("2024-06-30","2024-03-31","2023-12-30","2023-09-25")
+date_file=c("2025-06-29", "2025-03-28","2024-12-31", "2024-09-29",
+            "2024-06-30","2024-03-31","2023-12-30","2023-09-25")
 area="menorca"
 
 create_dir <- function(dir) {
