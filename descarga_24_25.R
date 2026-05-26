@@ -15,7 +15,8 @@ files_visualisations <- c("neighbourhoods.geojson","neighbourhoods.csv")
 #https://data.insideairbnb.com/united-states/ny/albany/2024-01-06/visualisations/neighbourhoods.geojson
 url1 <- "https://data.insideairbnb.com/united-states/ny/albany/"
 url2 <- "https://data.insideairbnb.com/united-states/ny/albany/"
-date_file=c("2025-10-05","2025-09-06","2025-08-04","2025-07-04",
+date_file=c("2026-02-15","2026-01-16","2025-12-11","2025-11-07",
+            "2025-10-05","2025-09-06","2025-08-04","2025-07-04",
             "2025-06-09","2025-05-02","2025-04-03","2025-03-02",
             "2025-02-06","2025-01-05","2024-12-07","2024-11-05","2024-10-04",
             "2024-09-05","2024-08-07","2024-07-06","2024-06-07","2024-05-06",

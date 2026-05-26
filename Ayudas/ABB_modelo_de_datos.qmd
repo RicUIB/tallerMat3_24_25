@@ -171,13 +171,13 @@ Se comenta el código para facilitar su lectura (generado...).
 library(tidyverse)
 
 # Definir directorios y seleccionar uno para procesar
-dir_menorca <- dir("../data/menorca")
-dir_zone <- dir_menorca  # Aquí se puede cambiar la zona según sea necesario
+dir_albany <- dir("../data/albany")
+dir_zone <- dir_albany  # Aquí se puede cambiar la zona según sea necesario
 
 # Función para leer archivos de listado
 read_data_listing <- function(dir) {
   readr::read_csv(
-    paste0("../data/menorca/", dir, "/listings.csv.gz"),
+    paste0("../data/albany/", dir, "/listings.csv.gz"),
     col_types = cols(                         
 id =col_character(),
 listing_url =col_character(),
@@ -308,10 +308,10 @@ listings_common0 <- listings_total%>% filter(id %in% id_common)
 
 
 ```{r}
-write_csv(listings_total, paste0("../clean_data/menorca/","listings_all.csv.gz"))
-write_csv(listings_common0, paste0("../clean_data/menorca/","listing_common0.csv.gz"))
-save(listings_total, file=paste0("../clean_data/menorca/","listings_all.RData"))
-save(listings_common0, file=paste0("../clean_data/menorca/","listing_common0.RData"))
+write_csv(listings_total, paste0("../clean_data/albany/","listings_all.csv.gz"))
+write_csv(listings_common0, paste0("../clean_data/albany/","listing_common0.csv.gz"))
+save(listings_total, file=paste0("../clean_data/albany/","listings_all.RData"))
+save(listings_common0, file=paste0("../clean_data/albany/","listing_common0.RData"))
 ```
 
 
